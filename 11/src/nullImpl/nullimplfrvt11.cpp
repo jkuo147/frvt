@@ -8,9 +8,6 @@
  * about its quality, reliability, or any other characteristic.
  */
 
-#define PY_SSIZE_T_CLEAN
-#include "Python.h"
-
 #include <cstring>
 #include <cstdlib>
 
@@ -57,15 +54,11 @@ NullImplFRVT11::matchTemplates(
         const std::vector<uint8_t> &enrollTemplate,
         double &similarity)
 {
-    Py_Initialize();
-    insightfaceModule = PyImport_ImportModule("insightface")
-    /*
     float *featureVector = (float *)enrollTemplate.data();
 
     for (unsigned int i=0; i<this->featureVectorSize; i++) {
 	std::cout << featureVector[i] << std::endl;
     }
-    */
 
     similarity = rand() % 1000 + 1;
     return ReturnStatus(ReturnCode::Success);
